@@ -9,7 +9,7 @@ import sg.edu.nus.iss.paf_mongo2try.model.Review;
 @Controller
 public class FormController {
     
-        @GetMapping
+    @GetMapping
     public String getForm(ModelAndView model) {
         ModelAndView mav = new ModelAndView();
         mav.addObject("review", new Review());

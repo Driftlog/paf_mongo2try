@@ -28,7 +28,7 @@ public class ReviewService {
             .append("comment", form.getFirst("comment"))
             .append("ID", form.getFirst("gid"))
             .append("user", new Date())
-            .append("user", form.getFirst("name"));
+            .append("gname", form.getFirst("gname"));
         
         return repo.insertReview(review);
 
