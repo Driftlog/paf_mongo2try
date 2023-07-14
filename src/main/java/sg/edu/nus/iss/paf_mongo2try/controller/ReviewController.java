@@ -17,26 +17,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.json.JsonObject;
 import sg.edu.nus.iss.paf_mongo2try.model.Review;
 import sg.edu.nus.iss.paf_mongo2try.service.ReviewService;
 
-@Controller
+@RestController
 @RequestMapping(path="/review")
 public class ReviewController {
 
     @Autowired
     private ReviewService svc;
 
-    @GetMapping
-    public String getForm(ModelAndView model) {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("review", new Review());
-        
-        return "review";
-    }
     
     @PostMapping(consumes="application/x-www-form-urlencoded")
     public ResponseEntity<Document> insertReview(@RequestBody MultiValueMap<String, String> form) {
